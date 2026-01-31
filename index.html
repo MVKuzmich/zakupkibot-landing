@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Уведомления о госзакупках и тендерах Беларуси в Telegram | goszakupki, icetrade</title>
+  <meta name="description" content="Telegram-бот для отслеживания тендеров Беларуси: goszakupki.by и icetrade.by. Настройте фильтры по ключевым словам, регионам и получайте уведомления о новых закупках в удобное время.">
+  <meta name="keywords" content="госзакупки Беларусь, тендеры Беларуси, goszakupki, icetrade, уведомления о закупках, поиск тендеров, закупки Telegram бот">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://YOUR-USERNAME.github.io/ZakupkiBot/">
+
+  <!-- Open Graph / соцсети и превью -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Уведомления о госзакупках и тендерах Беларуси в Telegram">
+  <meta property="og:description" content="Отслеживайте новые тендеры goszakupki.by и icetrade.by по вашим фильтрам. Уведомления в Telegram в удобное время.">
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/ZakupkiBot/">
+  <meta property="og:locale" content="ru_RU">
+
+  <!-- Дополнительно для Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Уведомления о госзакупках Беларуси в Telegram">
+  <meta name="twitter:description" content="Отслеживайте новые тендеры goszakupki.by и icetrade.by по вашим фильтрам. Уведомления в Telegram.">
+
+  <!-- Структурированные данные для поисковиков (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ZakupkiBot",
+    "description": "Telegram-бот для уведомлений о государственных закупках Беларуси (goszakupki.by, icetrade.by). Фильтры по ключевым словам, регионам, типам процедур.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Telegram",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "BYN"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --color-bg: #f8f9fa;
+      --color-text: #212529;
+      --color-accent: #0d6efd;
+      --color-border: #dee2e6;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 1rem 1.5rem; }
+    header { padding: 2rem 0; text-align: center; border-bottom: 1px solid var(--color-border); }
+    h1 { font-size: 1.75rem; margin: 0 0 0.5rem; font-weight: 700; }
+    .lead { font-size: 1.125rem; color: #495057; margin: 0 0 1.5rem; }
+    .cta {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--color-accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 0.375rem;
+    }
+    .cta:hover { opacity: 0.9; }
+    main { padding: 2rem 0; }
+    section { margin-bottom: 2.5rem; }
+    h2 { font-size: 1.35rem; margin: 0 0 1rem; font-weight: 600; }
+    h3 { font-size: 1.1rem; margin: 1rem 0 0.5rem; font-weight: 600; }
+    p { margin: 0 0 1rem; }
+    ul { margin: 0 0 1rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+    .steps { list-style: none; padding-left: 0; counter-reset: step; }
+    .steps li {
+      counter-increment: step;
+      margin-bottom: 1rem;
+      padding-left: 2.5rem;
+      position: relative;
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: var(--color-accent);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.5rem;
+    }
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.875rem;
+      color: #6c757d;
+    }
+    footer a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Уведомления о госзакупках Беларуси в Telegram</h1>
+      <p class="lead">Отслеживайте новые тендеры на goszakupki.by и icetrade.by по вашим фильтрам. Настройка за минуту, уведомления в удобное время.</p>
+      <a class="cta" href="https://t.me/zakupki_tendery_bot" rel="noopener noreferrer">Открыть бота в Telegram</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section aria-labelledby="features">
+        <h2 id="features">Что умеет бот</h2>
+        <ul>
+          <li><strong>Фильтры по критериям</strong> — ключевые слова, регионы, типы процедур, источники финансирования.</li>
+          <li><strong>Две площадки</strong> — goszakupki.by и icetrade.by в одном боте.</li>
+          <li><strong>Удобное время</strong> — уведомления 1–3 раза в день в выбранный интервал (рабочий день, вечер, круглосуточно или свой вариант).</li>
+          <li><strong>Всё в Telegram</strong> — настройка и получение тендеров без перехода на сайты и без почты.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="how-it-works">
+        <h2 id="how-it-works">Как это работает</h2>
+        <ol class="steps">
+          <li>Нажмите «Старт» в боте и примите политику конфиденциальности.</li>
+          <li>Настройте фильтры в мастере: ключевые слова → регионы → типы процедур (все шаги опциональны).</li>
+          <li>Выберите, как часто присылать уведомления и в какое время (по времени Беларуси).</li>
+          <li>Получайте в Telegram уведомления о новых тендерах и ссылку на полный поиск на площадке.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="for-whom">
+        <h2 id="for-whom">Для кого</h2>
+        <p>Поставщики, юристы, аналитики — все, кому важно не пропустить подходящую закупку. Бот проверяет площадки по расписанию и присылает уведомления о новых тендерах (либо их отсутствии) по вашим критериям.</p>
+      </section>
+
+      <section aria-labelledby="cta-bottom">
+        <h2 id="cta-bottom">Начать</h2>
+        <p>Откройте бота в Telegram, настройте фильтры и получайте уведомления о новых тендерах.</p>
+        <a class="cta" href="https://t.me/zakupki_tendery_bot" rel="noopener noreferrer">Открыть в Telegram</a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Политику конфиденциальности и команды выгрузки или удаления данных можно посмотреть в боте (/privacy, /export_data, /delete_account).</p>
+    </div>
+  </footer>
+</body>
+</html>
