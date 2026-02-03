@@ -1,35 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Уведомления о госзакупках и тендерах Беларуси в Telegram | goszakupki, icetrade</title>
-  <meta name="description" content="Telegram-бот для отслеживания тендеров Беларуси: goszakupki.by и icetrade.by. Настройте фильтры по ключевым словам, регионам и получайте уведомления о новых закупках в удобное время.">
-  <meta name="keywords" content="госзакупки Беларусь, тендеры Беларуси, goszakupki, icetrade, уведомления о закупках, поиск тендеров, закупки Telegram бот">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://mvkuzmich.github.io/zakupkibot-landing/">
-  <meta name="google-site-verification" content="9C9m8RKysUzmjSn_S5YeBPX3c9OkMRrby3rGK0SRg4s">
-  <meta name="yandex-verification" content="48f62cc35f33744a" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Open Graph / соцсети и превью -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Уведомления о госзакупках и тендерах Беларуси в Telegram">
-  <meta property="og:description" content="Отслеживайте новые тендеры goszakupki.by и icetrade.by по вашим фильтрам. Уведомления в Telegram в удобное время.">
-  <meta property="og:url" content="https://YOUR-USERNAME.github.io/ZakupkiBot/">
-  <meta property="og:locale" content="ru_RU">
+  <title>Поиск тендеров и закупок Беларуси, уведомления в Telegram бесплатно — goszakupki.by, icetrade.by</title>
+  <meta name="description" content="Поиск и мониторинг закупок/тендеров в Беларуси, уведомления в Telegram. Настройте фильтры и получайте уведомления о новых закупках с goszakupki.by и icetrade.by в удобное время." />
+  <meta name="keywords" content="поиск тендеров, поиск закупок, тендеры Беларусь, госзакупки Беларусь, goszakupki, icetrade, уведомления о закупках, Telegram бот" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mvkuzmich.github.io/zakupkibot-landing/" />
 
-  <!-- Дополнительно для Twitter -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Уведомления о госзакупках и тендерах Беларуси в Telegram">
-  <meta name="twitter:description" content="Отслеживайте новые тендеры goszakupki.by и icetrade.by по вашим фильтрам. Уведомления в Telegram.">
+  <meta name="google-site-verification" content="9C9m8RKysUzmjSn_S5YeBPX3c9OkMRrby3rGK0SRg4s" />
 
-  <!-- Структурированные данные для поисковиков (JSON-LD) -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Поиск тендеров и закупок Беларуси, уведомления в Telegram" />
+  <meta property="og:description" content="Поиск и уведомления о новых закупках с goszakupki.by и icetrade.by. Фильтры по ключевым словам, регионам и типам процедур." />
+  <meta property="og:url" content="https://mvkuzmich.github.io/zakupkibot-landing/" />
+  <meta property="og:locale" content="ru_RU" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Поиск тендеров и закупок Беларуси, уведомления в Telegram" />
+  <meta name="twitter:description" content="Настройте фильтры и получайте новые закупки с goszakupki.by и icetrade.by прямо в Telegram." />
+
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "ZakupkiBot",
-    "description": "Telegram-бот для уведомлений о государственных закупках Беларуси (goszakupki.by, icetrade.by). Фильтры по ключевым словам, регионам, типам процедур.",
+    "name": "@zakupki_tendery_bot",
+    "description": "Telegram-бот для поиска и уведомлений о закупках/тендерах Беларуси по фильтрам (goszakupki.by, icetrade.by).",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Telegram",
     "offers": {
@@ -110,25 +111,34 @@
     footer a { color: var(--color-accent); }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container">
-      <h1>Уведомления о госзакупках Беларуси в Telegram</h1>
-      <p class="lead">Отслеживайте новые тендеры на goszakupki.by и icetrade.by по вашим фильтрам. Настройка за минуту, уведомления в удобное время.</p>
+      <h1>Поиск закупок и тендеров в Беларуси, уведомления в Telegram</h1>
+      <p class="lead">
+        Настройте фильтры — и бот будет помогать находить новые закупки на goszakupki.by и icetrade.by,
+        присылая уведомления в удобное время.
+      </p>
       <a class="cta" href="https://t.me/zakupki_tendery_bot" rel="noopener noreferrer">Открыть бота в Telegram</a>
     </div>
   </header>
 
   <main>
     <div class="container">
+
       <section aria-labelledby="features">
         <h2 id="features">Что умеет бот</h2>
         <ul>
-          <li><strong>Фильтры по критериям</strong> — ключевые слова, регионы, типы процедур, источники финансирования.</li>
+          <li><strong>Поиск по критериям</strong> — ключевые слова, регионы, типы процедур, источники финансирования.</li>
           <li><strong>Две площадки</strong> — goszakupki.by и icetrade.by в одном боте.</li>
-          <li><strong>Удобное время</strong> — уведомления 1–3 раза в день в выбранный интервал (рабочий день, вечер, круглосуточно или свой вариант).</li>
-          <li><strong>Всё в Telegram</strong> — настройка и получение тендеров без перехода на сайты и без почты.</li>
+          <li><strong>Удобное расписание</strong> — уведомления 1–3 раза в день в выбранный интервал (рабочий день, вечер, круглосуточно или свой вариант).</li>
+          <li><strong>Всё в Telegram</strong> — настройка и получение результатов без почты, без ручного мониторинга сайтов.</li>
         </ul>
+        <p style="font-size: 0.95rem; color: #495057;">
+          Если вы регулярно просматриваете закупки вручную, бот помогает автоматизировать рутину: он проверяет площадки по расписанию
+          и присылает только то, что совпадает с вашими настройками.
+        </p>
       </section>
 
       <section aria-labelledby="how-it-works">
@@ -137,36 +147,36 @@
           <li>Нажмите «Старт» в боте и примите политику конфиденциальности.</li>
           <li>Настройте фильтры в мастере: ключевые слова → регионы → типы процедур (все шаги опциональны).</li>
           <li>Выберите, как часто присылать уведомления и в какое время (по времени Беларуси).</li>
-          <li>Получайте в Telegram уведомления о новых тендерах и ссылку на полный поиск на площадке.</li>
+          <li>Получайте в Telegram уведомления о новых закупках и ссылку на поиск на площадке.</li>
         </ol>
       </section>
+
       <section aria-labelledby="video-demo">
-        <h2 id="video-demo">Видеообзор работы бота</h2>
-        <p>За 2 минуты: запуск бота → настройка фильтров → выбор расписания → первое уведомление о тендере.</p>
-        
+        <h2 id="video-demo">Видеообзор</h2>
+        <p>За 2 минуты: запуск бота → настройка фильтров → выбор расписания → первое уведомление.</p>
+
         <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 0.5rem; margin: 1.25rem 0;">
           <iframe
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-            src="https://www.youtube.com/embed/4XQH0mTjKbs?rel=0&modestbranding=1"
-            title="Телеграм-бот для уведомлений о тендерах в Беларуси — настройка фильтров"
+            src="https://www.youtube.com/embed/4XQH0mTjKbs?rel=0&amp;modestbranding=1"
+            title="@zakupki_tendery_bot — настройка фильтров для поиска закупок и тендеров"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
-            loading="lazy"
-          ></iframe>
+            loading="lazy"></iframe>
         </div>
-        
+
         <p style="font-size: 0.875rem; color: #6c757d;">
-          Видео: настройка фильтров для отслеживания госзакупок на goszakupki.by и icetrade.by.
+          Видео: настройка фильтров для мониторинга закупок на goszakupki.by и icetrade.by.
         </p>
       </section>
-        
+
       <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "VideoObject",
-        "name": "Телеграм-бот для получения уведомлений о тендерах в Беларуси — настройка фильтров",
-        "description": "Видео демонстрирует процесс настройки фильтров Telegram-бота для отслеживания госзакупок и тендеров на сайтах goszakupki.by и icetrade.by. Ссылка на бота: https://t.me/zakupki_tendery_bot",
+        "name": "ZakupkiBot — настройка фильтров для поиска закупок и тендеров",
+        "description": "Видео демонстрирует настройку Telegram-бота для поиска и мониторинга закупок/тендеров на goszakupki.by и icetrade.by. Ссылка на бота: https://t.me/zakupki_tendery_bot",
         "thumbnailUrl": "https://i.ytimg.com/vi/4XQH0mTjKbs/maxresdefault.jpg",
         "uploadDate": "2026-02-01T12:00:00+03:00",
         "duration": "PT2M",
@@ -174,7 +184,7 @@
         "embedUrl": "https://www.youtube.com/embed/4XQH0mTjKbs",
         "publisher": {
           "@type": "Organization",
-          "name": "ZakupkiBot",
+          "name": "@zakupki_tendery_bot",
           "url": "https://mvkuzmich.github.io/zakupkibot-landing/"
         }
       }
@@ -182,14 +192,18 @@
 
       <section aria-labelledby="for-whom">
         <h2 id="for-whom">Для кого</h2>
-        <p>Поставщики, юристы, аналитики — все, кому важно не пропустить подходящую закупку. Бот проверяет площадки по расписанию и присылает уведомления о новых тендерах (либо их отсутствии) по вашим критериям.</p>
+        <p>
+          Поставщики, юристы, аналитики — все, кому важно не пропустить подходящую закупку.
+          Бот проверяет площадки по расписанию и присылает уведомления о новых публикациях (либо их отсутствии) по вашим критериям.
+        </p>
       </section>
 
       <section aria-labelledby="cta-bottom">
         <h2 id="cta-bottom">Начать</h2>
-        <p>Откройте бота в Telegram, настройте фильтры и получайте уведомления о новых тендерах.</p>
+        <p>Откройте бота в Telegram, настройте фильтры и получайте уведомления о новых закупках.</p>
         <a class="cta" href="https://t.me/zakupki_tendery_bot" rel="noopener noreferrer">Открыть в Telegram</a>
       </section>
+
     </div>
   </main>
 
@@ -200,3 +214,4 @@
   </footer>
 </body>
 </html>
+
