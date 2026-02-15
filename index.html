@@ -1,28 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Поиск тендеров и закупок Беларуси, уведомления в Telegram бесплатно — goszakupki.by, icetrade.by</title>
-  <meta name="description" content="Поиск и мониторинг закупок/тендеров в Беларуси, уведомления в Telegram. Настройте фильтры и получайте уведомления о новых закупках с goszakupki.by и icetrade.by в удобное время." />
-  <meta name="keywords" content="поиск тендеров, поиск закупок, тендеры Беларусь, госзакупки Беларусь, goszakupki, icetrade, уведомления о закупках, Telegram бот" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://mvkuzmich.github.io/zakupkibot-landing/" />
+  <meta name="description" content="Поиск и мониторинг закупок/тендеров в Беларуси, уведомления в Telegram. Настройте фильтры и получайте уведомления о новых закупках с goszakupki.by и icetrade.by в удобное время.">
+  <meta name="keywords" content="поиск тендеров, поиск закупок, тендеры Беларусь, госзакупки Беларусь, goszakupki, icetrade, уведомления о закупках, Telegram бот">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mvkuzmich.github.io/zakupkibot-landing/">
 
-  <meta name="google-site-verification" content="9C9m8RKysUzmjSn_S5YeBPX3c9OkMRrby3rGK0SRg4s" />
+  <meta name="google-site-verification" content="9C9m8RKysUzmjSn_S5YeBPX3c9OkMRrby3rGK0SRg4s">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Поиск тендеров и закупок Беларуси, уведомления в Telegram" />
-  <meta property="og:description" content="Поиск и уведомления о новых закупках с goszakupki.by и icetrade.by. Фильтры по ключевым словам, регионам и типам процедур." />
-  <meta property="og:url" content="https://mvkuzmich.github.io/zakupkibot-landing/" />
-  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Поиск тендеров и закупок Беларуси, уведомления в Telegram">
+  <meta property="og:description" content="Поиск и уведомления о новых закупках с goszakupki.by и icetrade.by. Фильтры по ключевым словам, регионам и типам процедур.">
+  <meta property="og:url" content="https://mvkuzmich.github.io/zakupkibot-landing/">
+  <meta property="og:locale" content="ru_RU">
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Поиск тендеров и закупок Беларуси, уведомления в Telegram" />
-  <meta name="twitter:description" content="Настройте фильтры и получайте новые закупки с goszakupki.by и icetrade.by прямо в Telegram." />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Поиск тендеров и закупок Беларуси, уведомления в Telegram">
+  <meta name="twitter:description" content="Настройте фильтры и получайте новые закупки с goszakupki.by и icetrade.by прямо в Telegram.">
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -109,6 +109,70 @@
       color: #6c757d;
     }
     footer a { color: var(--color-accent); }
+
+    /* Consent banner */
+    .cookie-banner {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      background: #212529;
+      color: #f8f9fa;
+      padding: 1rem 1.25rem;
+      display: none;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.35);
+    }
+    .cookie-banner__inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cookie-banner__text {
+      flex: 1 1 260px;
+      font-size: 0.875rem;
+      color: #e9ecef;
+    }
+    .cookie-banner__text a {
+      color: #6ab4ff;
+      text-decoration: underline;
+    }
+    .cookie-banner__actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .cookie-btn {
+      border-radius: 999px;
+      border: 0;
+      padding: 0.45rem 1.1rem;
+      font-size: 0.875rem;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 500;
+    }
+    .cookie-btn--primary {
+      background: #0d6efd;
+      color: #fff;
+    }
+    .cookie-btn--secondary {
+      background: transparent;
+      color: #f8f9fa;
+      border: 1px solid #f8f9fa;
+    }
+    @media (max-width: 600px) {
+      .cookie-banner__inner {
+        align-items: flex-start;
+      }
+      .cookie-banner__actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
   </style>
 </head>
 
@@ -156,14 +220,7 @@
         <p>За 2 минуты: запуск бота → настройка фильтров → выбор расписания → первое уведомление.</p>
 
         <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 0.5rem; margin: 1.25rem 0;">
-          <iframe
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-            src="https://www.youtube.com/embed/4XQH0mTjKbs?rel=0&amp;modestbranding=1"
-            title="@zakupki_tendery_bot — настройка фильтров для поиска закупок и тендеров"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            loading="lazy"></iframe>
+          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/4XQH0mTjKbs?rel=0&amp;modestbranding=1" title="@zakupki_tendery_bot — настройка фильтров для поиска закупок и тендеров" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
         <p style="font-size: 0.875rem; color: #6c757d;">
@@ -209,9 +266,157 @@
 
   <footer>
     <div class="container">
-      <p>Политику конфиденциальности и команды выгрузки или удаления данных можно посмотреть в боте (/privacy, /export_data, /delete_account).</p>
+      <p>
+        Политика конфиденциальности бота и команды для выгрузки или удаления данных доступны в Telegram-боте
+        (/privacy, /export_data, /delete_account).
+      </p>
+      <p>
+        Политика конфиденциальности и использования веб-хранилищ/аналитики для этой страницы:
+        <a href="https://mvkuzmich.github.io/privacy-policies-zakupkibot/" rel="noopener noreferrer">открыть</a>.
+      </p>
     </div>
   </footer>
+
+  <!-- Баннер явного согласия на аналитику -->
+  <div class="cookie-banner" id="cookie-banner">
+    <div class="cookie-banner__inner">
+      <div class="cookie-banner__text">
+        На этом сайте используются инструменты веб‑аналитики (например, Яндекс.Метрика и Google Analytics),
+        которые могут сохранять в вашем браузере технические идентификаторы и обрабатывать данные о посещениях
+        для формирования статистики и улучшения сервиса.<br>
+        Нажимая «Соглашаюсь», вы даёте <strong>согласие на обработку таких данных в целях аналитики</strong>
+        в соответствии с нашей
+        <a href="https://mvkuzmich.github.io/privacy-policies-zakupkibot/" target="_blank" rel="noopener">
+          политикой конфиденциальности
+        </a>.
+        Вы можете <strong>отклонить</strong> использование аналитики — в этом случае страница продолжит работать без сбора статистики.[web:72][web:8]
+      </div>
+      <div class="cookie-banner__actions">
+        <button type="button" class="cookie-btn cookie-btn--secondary" id="cookie-reject">
+          Отклонить
+        </button>
+        <button type="button" class="cookie-btn cookie-btn--primary" id="cookie-accept">
+          Соглашаюсь на аналитику
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Логика согласия + отложенная загрузка аналитики -->
+  <script>
+    (function() {
+      var STORAGE_KEY = 'zakupkibot_analytics_consent'; // 'accepted' | 'rejected'
+
+      function hasWindow() {
+        return typeof window !== 'undefined';
+      }
+
+      function getConsent() {
+        try {
+          return hasWindow() ? window.localStorage.getItem(STORAGE_KEY) : null;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function setConsent(value) {
+        try {
+          if (hasWindow()) {
+            window.localStorage.setItem(STORAGE_KEY, value);
+          }
+        } catch (e) {}
+      }
+
+      function hideBanner() {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+          banner.style.display = 'none';
+        }
+      }
+
+      function showBanner() {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+          banner.style.display = 'block';
+        }
+      }
+
+      function loadAnalyticsScripts() {
+        // Здесь только каркас; реальные ID/код вставь свой.
+        // Яндекс.Метрика
+        // var ymScript = document.createElement('script');
+        // ymScript.src = 'https://mc.yandex.ru/metrika/tag.js';
+        // ymScript.async = true;
+        // document.head.appendChild(ymScript);
+        //
+        // ymScript.onload = function() {
+        //   try {
+        //     window.ym && window.ym(YOUR_COUNTER_ID, 'init', {
+        //       clickmap:true,
+        //       trackLinks:true,
+        //       accurateTrackBounce:true
+        //     });
+        //   } catch (e) {}
+        // };
+        //
+        // Google Analytics (GA4, gtag.js):
+        // var gaScript = document.createElement('script');
+        // gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
+        // gaScript.async = true;
+        // document.head.appendChild(gaScript);
+        //
+        // gaScript.onload = function() {
+        //   window.dataLayer = window.dataLayer || [];
+        //   function gtag(){dataLayer.push(arguments);}
+        //   gtag('js', new Date());
+        //   gtag('config', 'G-XXXXXXX');
+        // };
+      }
+
+      function init() {
+        var current = getConsent();
+
+        if (current === 'accepted') {
+          loadAnalyticsScripts();
+          hideBanner();
+          return;
+        }
+
+        if (current === 'rejected') {
+          hideBanner();
+          return;
+        }
+
+        // Нет выбора → показываем баннер, но страница уже работает
+        showBanner();
+
+        var acceptBtn = document.getElementById('cookie-accept');
+        var rejectBtn = document.getElementById('cookie-reject');
+
+        if (acceptBtn) {
+          acceptBtn.addEventListener('click', function() {
+            // явное выражение согласия (opt-in)
+            setConsent('accepted');
+            hideBanner();
+            loadAnalyticsScripts();
+          });
+        }
+
+        if (rejectBtn) {
+          rejectBtn.addEventListener('click', function() {
+            setConsent('rejected');
+            hideBanner();
+            // Аналитика не загружается
+          });
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
 </body>
 </html>
-
