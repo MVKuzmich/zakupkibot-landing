@@ -1,6 +1,3 @@
-Вот обновлённый код: встроил твой счётчик в функцию `loadAnalyticsScripts`, чтобы Метрика включалась только после согласия, `noscript` убрал (без JS она всё равно не нужна).
-
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -187,7 +184,12 @@
         Настройте фильтры — и бот будет помогать находить новые закупки на goszakupki.by и icetrade.by,
         присылая уведомления в удобное время.
       </p>
-      <a class="cta" href="https://t.me/zakupki_tendery_bot" rel="noopener noreferrer">Открыть бота в Telegram</a>
+      <a
+        id="hero-open-bot"
+        class="cta"
+        href="https://t.me/zakupki_tendery_bot"
+        rel="noopener noreferrer"
+      >Открыть бота в Telegram</a>
     </div>
   </header>
 
@@ -261,7 +263,12 @@
       <section aria-labelledby="cta-bottom">
         <h2 id="cta-bottom">Начать</h2>
         <p>Откройте бота в Telegram, настройте фильтры и получайте уведомления о новых закупках.</p>
-        <a class="cta" href="https://t.me/zakupki_tendery_bot" rel="noopener noreferrer">Открыть в Telegram</a>
+        <a
+          id="bottom-open-bot"
+          class="cta"
+          href="https://t.me/zakupki_tendery_bot"
+          rel="noopener noreferrer"
+        >Открыть в Telegram</a>
       </section>
 
     </div>
@@ -305,10 +312,12 @@
     </div>
   </div>
 
-  <!-- Логика согласия + отложенная загрузка аналитики -->
+  <!-- Логика согласия + отложенная загрузка аналитики и целей -->
   <script>
     (function() {
       var STORAGE_KEY = 'zakupkibot_analytics_consent'; // 'accepted' | 'rejected'
+      var METRIKA_ID = 106837609;
+      var goalName = 'open_bot_button'; // идентификатор цели в Метрике
 
       function hasWindow() {
         return typeof window !== 'undefined';
@@ -344,6 +353,29 @@
         }
       }
 
+      function attachButtonGoals() {
+        function handler(e) {
+          try {
+            if (typeof ym === 'function') {
+              ym(METRIKA_ID, 'reachGoal', goalName);
+            }
+          } catch (err) {
+            // глушим любые ошибки, чтобы не ломать навигацию
+          }
+          // не блокируем переход по ссылке
+        }
+
+        var heroBtn = document.getElementById('hero-open-bot');
+        var bottomBtn = document.getElementById('bottom-open-bot');
+
+        if (heroBtn) {
+          heroBtn.addEventListener('click', handler);
+        }
+        if (bottomBtn) {
+          bottomBtn.addEventListener('click', handler);
+        }
+      }
+
       function loadAnalyticsScripts() {
         // Yandex.Metrika counter (грузим только после согласия)
         (function(m,e,t,r,i,k,a){
@@ -356,9 +388,9 @@
             k.async=1;
             k.src=r;
             a.parentNode.insertBefore(k,a);
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106837609', 'ym');
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=' + METRIKA_ID, 'ym');
 
-        ym(106837609, 'init', {
+        ym(METRIKA_ID, 'init', {
           ssr:true,
           webvisor:true,
           clickmap:true,
@@ -368,9 +400,16 @@
           accurateTrackBounce:true,
           trackLinks:true
         });
+
+        // подключаем обработчики целей после инициализации Метрики
+        attachButtonGoals();
       }
 
       function init() {
+        // обработчики кликов на кнопки ставим всегда,
+        // но ym() реально отработает только если скрипт Метрики загружен
+        attachButtonGoals();
+
         var current = getConsent();
 
         if (current === 'accepted') {
@@ -392,7 +431,6 @@
 
         if (acceptBtn) {
           acceptBtn.addEventListener('click', function() {
-            // явное выражение согласия (opt-in)
             setConsent('accepted');
             hideBanner();
             loadAnalyticsScripts();
@@ -403,7 +441,6 @@
           rejectBtn.addEventListener('click', function() {
             setConsent('rejected');
             hideBanner();
-            // Аналитика не загружается
           });
         }
       }
@@ -417,4 +454,3 @@
   </script>
 </body>
 </html>
-```
